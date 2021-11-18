@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Course Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" cntent="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="../static/main.css">
+  <script>
+        function check()
+        {
+            if(document.getElementById("filename").value != "Null")
+            {
+                document.getElementById("Submit_button").disabled = false;
+            }
+            else{
+                document.getElementById("Submit_button").disabled = true;
+            }
+        }
+        window.onload= check;
+  </script>
+</head>
+<body>
+    <div class="nav">
+        CIS524 Course Project
+    </div>
+    <br>
+    <div style="background-color: aliceblue; padding: 10%; border-radius: 2px;">
+        <center>
+            <form action="/calculate" method="post">
+                <label for="filename">Select Log File</label>
+                <select onchange="check(this)" name="filename" id="filename">
+                    <option value="Null">Select a file</option>
+                    {% for items in log_list %}
+                        <option value="{{items}}">{{items}}</option>
+                    {% endfor %}
+                </select>
+                <a href="/"><button style="margin-left: 5%;" id="Submit_button" disabled class="submit_button">Submit</button></a>       
+              </form>
+              <br><br><br>
+              <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="uploadfile">If you want to upload a log file click here:</label>
+                <input  onchange="check()" type="file" name="uploadfile" id="uploadfile" accept=".txt, .log">
+                <a href="/"><button id="Submit_button" class="up_submit_button">Submit</button></a>
+              </form>
+              <p style="margin-top : 50px; color: #478c96;">{{time}}</p>
+        </center>
+          
+    </div>
+</body>
+</html>

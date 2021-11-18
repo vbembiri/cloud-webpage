@@ -1,0 +1,15 @@
+body{
+    padding: 0% 3% 3% 3% ;
+    background-color: #616670;
+}
+
+.nav{
+    margin-top: 25px;
+    text-align: center;
+    padding-top: 3%;
+    background-color: #68afb8;
+    height: 50px;
+    font-size: x-large;
+    font-family: sans-serif;
+    border-radius: 2px;
+}
